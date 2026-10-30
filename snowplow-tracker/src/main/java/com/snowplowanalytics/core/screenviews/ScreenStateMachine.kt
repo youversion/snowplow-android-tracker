@@ -79,6 +79,8 @@ class ScreenStateMachine : StateMachineInterface {
 
     override fun entities(event: InspectableEvent, state: State?): List<SelfDescribingJson>? {
         if (state == null) return ArrayList()
+        // keep the screen entity attached by the caller rather than adding the current screen
+        if (event.entities.any { it.map["schema"] == TrackerConstants.SCHEMA_SCREEN }) return null
         val screenState = state as? ScreenState
         when (screenState?.lifecycle) {
             // only the screen end event is attributed to the ended screen

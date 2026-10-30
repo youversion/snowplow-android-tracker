@@ -73,6 +73,7 @@ interface TrackerConfigurationInterface {
 
     /**
      * Whether screen context is sent with all the tracked events.
+     * Events that already carry a screen entity keep it instead of getting the current screen.
      */
     var screenContext: Boolean
 

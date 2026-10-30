@@ -263,6 +263,7 @@ open class TrackerConfiguration : TrackerConfigurationInterface, Configuration {
 
     /**
      * Whether the screen context entity should be sent with all the tracked events.
+     * Events that already carry a screen entity keep it instead of getting the current screen.
      */
     fun screenContext(screenContext: Boolean): TrackerConfiguration {
         this.screenContext = screenContext
